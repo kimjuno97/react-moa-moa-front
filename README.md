@@ -11,4 +11,7 @@
 ┃ ┗  Page.tsx
 ┃ ┗  Modal.tsx
 ┃ ┗  useModal.tsx
+┣ 📂 박스드래그 /- 드래그 앤 드랍으로 박스 옮기는 이벤트 구현
+┃ ┗  MoveBox.tsx
+┃ ┗  useMoveBox.tsx
 ```
