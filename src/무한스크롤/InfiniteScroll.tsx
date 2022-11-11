@@ -2,18 +2,22 @@ import React, { useEffect, useRef, useState } from 'react';
 import data from './data.json';
 import styled from 'styled-components';
 
+interface TypeFeed {
+	img: string;
+}
+
 export default function InfiniteScroll() {
-	const [feed, setFeed] = useState([]);
-	const target = useRef();
+	const [feed, setFeed] = useState<TypeFeed[]>([]);
+	const target = useRef<HTMLDivElement | null>(null);
 	console.log('feed 증가 확인', feed);
-	useEffect(() => {
-		let io = null;
+	useEffect((): (() => void) => {
+		let io: IntersectionObserver | null = null;
 		if (target.current) {
 			io = new IntersectionObserver(entries => {
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
 						setTimeout(() => {
-							setFeed(prev => [...prev, ...data]);
+							setFeed((prev: TypeFeed[]) => [...prev, ...data]);
 						}, 500);
 					}
 				});
@@ -57,7 +61,7 @@ const Loading = styled.div`
 	transform: translate(-50%, -50%);
 `;
 
-const ImgBox = styled.div`
+const ImgBox = styled.div<TypeFeed>`
 	width: 100px;
 	height: 100px;
 	border: 1px solid black;

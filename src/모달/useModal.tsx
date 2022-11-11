@@ -1,10 +1,10 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 export default function useModal() {
 	const [toggle, setToggle] = useState(false);
 	const target = useRef(null);
 
-	const outLineTouch = e => {
+	const outLineTouch = (e: React.MouseEvent) => {
 		if (target.current !== e.target && toggle) {
 			setToggle(false);
 		}
