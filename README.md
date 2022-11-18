@@ -16,4 +16,7 @@
 ┃ ┗  useMoveBox.tsx
 ┣ 📂 이미지파일업로드 /- 브라우저에서 이미지업로드 처리시 참고용
 ┃ ┗  ImgUpload.tsx
+┣ 📂 캐러셀 /-  라이브러리 없이 캐러셀 구현
+┃ ┗ Carousel.tsx
+┃ ┗ useCarousel.tsx /- 캐러셀 hook 만듬
 ```
