@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+const RAINBOWARRAY = ['red', 'orange', 'green', 'blue'];
 
 export default function useCarousel() {
 	// setSilder로 만든 배열 안쪽에서 저장
@@ -18,7 +20,6 @@ export default function useCarousel() {
 			index++;
 		}
 		setCaroselArray([...addedFront, ...arry, ...addedLast]);
-		return [...addedFront, ...arry, ...addedLast];
 	};
 	/** 트랜지션 on,off */
 	const [offTransition, setOffTransition] = useState(false);
@@ -97,11 +98,14 @@ export default function useCarousel() {
 		return () => clearInterval(timeInterval);
 	}, [currentIdx, caroselArray.length]);
 
+	useEffect(() => {
+		setSilder(RAINBOWARRAY);
+	}, []);
+
 	return {
 		currentIdx,
 		transition,
 		caroselArray,
-		setSilder,
 		handleSwipe,
 		buttonControll,
 		disabled,

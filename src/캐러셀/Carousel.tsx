@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import useCarousel from './useCarousel';
-
-const RAINBOWARRAY = ['red', 'orange', 'green', 'blue'];
 
 export default function Carousel() {
 	const {
@@ -12,13 +10,7 @@ export default function Carousel() {
 		handleSwipe,
 		buttonControll,
 		disabled,
-		setSilder,
 	} = useCarousel();
-	// 불러올때 이렇게 함
-	useEffect(() => {
-		setSilder(RAINBOWARRAY);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
 
 	return (
 		<>
