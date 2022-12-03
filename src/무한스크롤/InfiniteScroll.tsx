@@ -10,7 +10,7 @@ export default function InfiniteScroll() {
 	const [feed, setFeed] = useState<TypeFeed[]>([]);
 	const target = useRef<HTMLDivElement | null>(null);
 	console.log('feed 증가 확인', feed);
-	useEffect((): (() => void) => {
+	useEffect(() => {
 		let io: IntersectionObserver | null = null;
 		if (target.current) {
 			io = new IntersectionObserver(entries => {
@@ -24,8 +24,7 @@ export default function InfiniteScroll() {
 			});
 			io.observe(target.current);
 		}
-		return () => io && io.disconnect();
-	}, [feed]);
+	}, []);
 
 	if (feed.length === 0) {
 		return (
