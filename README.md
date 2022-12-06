@@ -21,5 +21,8 @@
 ┃ ┗ useCarousel.tsx /- 캐러셀 hook 만듬
 ┣ 📂 스피너 /- svg 스피너
 ┃ ┗ Spiner.tsx
-┗ ┗ Spiner.css
+┣ ┗ Spiner.css
+┣ 📂 디바운스
+┣ ┗ Debounce.tsx
+
 ```
