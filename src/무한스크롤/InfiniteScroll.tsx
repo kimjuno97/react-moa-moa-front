@@ -11,20 +11,23 @@ export default function InfiniteScroll() {
 	const target = useRef<HTMLDivElement | null>(null);
 	console.log('feed 증가 확인', feed);
 	useEffect(() => {
-		let io: IntersectionObserver | null = null;
-		if (target.current) {
-			io = new IntersectionObserver(entries => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						setTimeout(() => {
-							setFeed((prev: TypeFeed[]) => [...prev, ...data]);
-						}, 500);
-					}
-				});
+		const io = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					setTimeout(() => {
+						setFeed((prev: TypeFeed[]) => [...prev, ...data]);
+					}, 500);
+				}
 			});
-			io.observe(target.current);
-		}
-	}, []);
+		});
+
+		if (target.current) io.observe(target.current);
+		// 여러번 테스트 해봤을때, cleanUp 작업이 필요 없는 것 같지만, 안전 장치로 추가 하였다.
+		return () => {
+			console.log('cleanUp', io);
+			io.disconnect();
+		};
+	}, [feed]);
 
 	if (feed.length === 0) {
 		return (

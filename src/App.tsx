@@ -9,5 +9,5 @@ import ImgUpload from './이미지파일업로드/ImgUpload';
 import Carousel from './캐러셀/Carousel';
 
 export default function App() {
-	return <Debounce />;
+	return <InfiniteScroll />;
 }
