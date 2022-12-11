@@ -7,8 +7,8 @@ export default function Modal() {
 
 	return toggle ? (
 		<>
-			<OutLineDiv onClick={outLineTouch}>
-				<ModalBox ref={target}>모달</ModalBox>
+			<OutLineDiv ref={target} onClick={outLineTouch}>
+				<ModalBox>모달</ModalBox>
 			</OutLineDiv>
 		</>
 	) : (

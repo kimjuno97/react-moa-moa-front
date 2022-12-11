@@ -5,7 +5,8 @@ export default function useModal() {
 	const target = useRef(null);
 
 	const outLineTouch = (e: React.MouseEvent) => {
-		if (target.current !== e.target && toggle) {
+		console.log(e.target);
+		if (target.current === e.target && toggle) {
 			setToggle(false);
 		}
 	};
